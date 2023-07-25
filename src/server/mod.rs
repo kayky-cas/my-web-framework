@@ -1,11 +1,12 @@
-use std::{io, net::TcpListener};
-
-struct WebServer {
-    address: (String, u16),
-}
+mod request;
+use std::{collections::HashMap, io, net::TcpListener};
 
 trait Server {
     fn run(&self) -> io::Result<()>;
+}
+
+struct WebServer {
+    address: (String, u16),
 }
 
 impl Server for WebServer {
